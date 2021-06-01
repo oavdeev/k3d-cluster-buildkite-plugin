@@ -1,5 +1,5 @@
-name: K3D cluster
-description: Create and teardown k3d cluster per step
+name: kind cluster
+description: Create and teardown kind cluster per step
 author: https://github.com/oavdeev
 requirements: []
 configuration:

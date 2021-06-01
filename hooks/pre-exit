@@ -1,2 +1,3 @@
 #!/bin/bash
-./k3d cluster delete bk-${BUILDKITE_STEP_ID:24}
+
+./kind delete cluster --name bk-${BUILDKITE_STEP_ID:24}
