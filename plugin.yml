@@ -1,0 +1,6 @@
+name: K3D cluster
+description: Create and teardown k3d cluster per step
+author: https://github.com/oavdeev
+requirements: []
+configuration:
+  additionalProperties: false

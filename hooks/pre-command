@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euxo pipefail
+
+wget -O k3d https://github.com/rancher/k3d/releases/download/v4.4.4/k3d-linux-amd64
+chmod +x k3d
+
+./k3d cluster create bk-${BUILDKITE_STEP_ID:24}
+export KUBECONFIG=$(./k3d kubeconfig write mycluster)
