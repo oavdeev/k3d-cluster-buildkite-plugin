@@ -3,4 +3,7 @@ description: Create and teardown kind cluster per step
 author: https://github.com/oavdeev
 requirements: []
 configuration:
+  properties:
+    k8sVersion:
+      type: string
   additionalProperties: false
