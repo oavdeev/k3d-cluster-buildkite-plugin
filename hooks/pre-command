@@ -5,7 +5,6 @@ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
 chmod +x ./kind
 export CLUSTER_ID=bk-${BUILDKITE_STEP_ID:24}
 export KUBECONFIG=$(pwd)/${CLUSTER_ID}
-env | grep BUILDKITE_PLUGIN
 case ${BUILDKITE_PLUGIN_KIND_CLUSTER_K8SVERSION:-1.21} in
 1.21)
   IMAGE=kindest/node:v1.21.1@sha256:69860bda5563ac81e3c0057d654b5253219618a22ec3a346306239bba8cfa1a6
