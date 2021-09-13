@@ -2,7 +2,8 @@
 set -euxo pipefail
 
 if [[ $BUILDKITE_COMMAND_EXIT_STATUS != "0" ]] ; then
+    echo "--- Uploading cluster logs"
     ./kind export logs --name "bk-${BUILDKITE_STEP_ID:24}" kind_logs
-    find ./kind_logs
-    buildkite-agent artifact upload kind_logs/*
+    tar cvzf "cluster-logs-bk-${BUILDKITE_STEP_ID:24}.tar.gz" kind_logs/
+    buildkite-agent artifact upload "cluster-logs-bk-${BUILDKITE_STEP_ID:24}.tar.gz"
 fi
