@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euxo pipefail
+
+if [[ $BUILDKITE_COMMAND_EXIT_STATUS != "0" ]] ; then
+    ./kind export logs --name "bk-${BUILDKITE_STEP_ID:24}" kind_logs
+    buildkite-agent artifact upload kind_logs/
+fi
